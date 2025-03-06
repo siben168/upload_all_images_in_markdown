@@ -1,0 +1,21 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Main Entry with Arguments",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/upload_all_images_in_markdown/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--config",
+                // "--vault_directory"，"/Users/testuser/Documents/test-notes",
+                // "--upload_url", "http://127.0.0.1:36677/upload?picbed=webdavplist&configName=test_config",
+                // "--cleanup"
+            ]
+        }
+    ]
+}

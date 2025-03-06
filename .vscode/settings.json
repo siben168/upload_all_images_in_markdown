@@ -1,0 +1,14 @@
+{
+    "python.testing.pytestArgs": [
+        "upload_all_images_in_markdown/test"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "flake8.args": [
+        "--max-line-length=120"
+    ],
+    "pylint.args": [
+        "--max-line-length=120",
+        "--disable=logging-fstring-interpolation,broad-exception-raised,broad-exception-caught,missing-module-docstring,missing-function-docstring,missing-class-docstring,redefined-outer-name"
+    ],
+}

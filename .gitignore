@@ -1,0 +1,6 @@
+# ...existing code...
+
+# Ignore configuration file with sensitive information
+# config.json
+log/
+**/__pycache__/
