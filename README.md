@@ -32,7 +32,26 @@ Convert image links in all Markdown files within a folder to online Markdown lin
 
 想把有道云笔记里的几千篇笔记迁移到 Obsidian 中，感谢[youdaonote-pull](https://github.com/DeppWang/youdaonote-pull)提供的有道云笔记的全量导出功能，很快把所有笔记导出到了本地文件夹，但是由于几千张笔记中的图片也保留在本地，不方便移动端使用，所以想把图片上传到图床，使用markdown链接到笔记里。于是自己写了个批量转换并上传图片的程序。
 
+## 安装包运行
+
+1. 下载安装包
+2. 解压
+3. 配置 `config.json` 文件
+    - 配置 `vault_directory` 为笔记所在的文件夹路径
+    - 配置 `upload_url` 为 PicList/PicGo 服务的 URL
+    - 配置 `base_url` 为图床的 URL
+    - 配置 `cleanup` 为是否清理本地图片
+4. 运行        
+    - Windows 用户双击 `upload-images.exe` 运行。
+    - macOS 在terminal中输入 `./upload-images` 运行。
+
+
+## 使用Python运行或开发
 ### 安装
+
+环境准备：python、poetry
+
+直接运行poetry install即可完成依赖项和环境安装
 
 ```bash
 poetry install
@@ -45,14 +64,16 @@ poetry install
 #### 使用命令行参数
 
 ```bash
-poetry run upload-all-images-in-markdown <vault_directory> --upload_url <UPLOAD_URL> --cleanup
+python upload_all_images_in_markdown/main.py <vault_directory> --upload_url <UPLOAD_URL> --cleanup
 ```
 
 #### 使用配置文件
 
 ```bash
-poetry run upload-all-images-in-markdown --config config.json
+python upload_all_images_in_markdown/main.py --config config.json
 ```
+
+不指定配置文件名时，会使用默认配置文件名`config.json`
 
 #### 结合使用
 
@@ -89,9 +110,7 @@ poetry run pytest
 ---
 
 ## English Documentation
-
 ### Table of Contents
-
 - [English Documentation](#english-documentation)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
@@ -119,6 +138,10 @@ I wanted to migrate thousands of notes from Youdao Cloud Notes to Obsidian. Than
 
 ### Installation
 
+Prerequisites: Python, Poetry
+
+Run the following command to install dependencies and set up the environment:
+
 ```bash
 poetry install
 ```
@@ -130,21 +153,23 @@ You can run the script with command-line arguments or specify a configuration fi
 #### Using Command-Line Arguments
 
 ```bash
-poetry run upload-all-images-in-markdown <vault_directory> --upload_url <UPLOAD_URL> --cleanup
+python upload_all_images_in_markdown/main.py <vault_directory> --upload_url <UPLOAD_URL> --cleanup
 ```
 
 #### Using a Configuration File
 
 ```bash
-poetry run upload-all-images-in-markdown --config config.json
+python upload_all_images_in_markdown/main.py --config config.json
 ```
+
+If no configuration file is specified, the default `config.json` will be used.
 
 #### Combining Both
 
 Command-line arguments will override the values in the configuration file.
 
 ```bash
-poetry run upload-all-images-in-markdown --config config.json --upload_url <UPLOAD_URL>
+python upload_all_images_in_markdown/main.py --config config.json --upload_url <UPLOAD_URL>
 ```
 
 ### Configuration
