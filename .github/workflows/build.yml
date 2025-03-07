@@ -30,7 +30,7 @@ jobs:
           poetry run pyinstaller --onefile --name upload_images upload_all_images_in_markdown/main.py  # Build the executable
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3  # Upload the generated .exe file
+        uses: actions/upload-artifact@v4  # Upload the generated .exe file
         with:
           name: upload-images.exe
           path: dist/upload-images.exe 
