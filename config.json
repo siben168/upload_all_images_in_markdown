@@ -1,8 +1,0 @@
-{
-    "vault_directory": "/path/to/vault-directory",
-    "base_url": "https://example.com/",
-    "upload_url": "http://127.0.0.1:36677/upload",
-    "cleanup": false,
-    "test_vault_dir": "/path/to/test-notes",
-    "test_upload_url": "http://example.com/upload"
-}
