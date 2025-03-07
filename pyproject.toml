@@ -6,18 +6,16 @@ authors = ["siben <siben168@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = ">=3.9,<3.14"
 requests = "^2.26.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "^6.2"
 pyinstaller = "^6.0.0"
+pillow = "^11.0.0"
 
 [tool.poetry.scripts]
 upload-all-images-in-markdown = "upload_all_images_in_markdown:main"
-
-[tool.poetry.group.dev.dependencies]
-pillow = "^11.0.0"
 
 [build-system]
 requires = ["poetry-core"]
