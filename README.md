@@ -11,13 +11,12 @@ Convert image links in all Markdown files within a folder to online Markdown lin
 ### 目录
 
 - [简介](#简介)
-- [安装](#安装)
-- [使用](#使用)
-  - [使用命令行参数](#使用命令行参数)
-  - [使用配置文件](#使用配置文件)
-  - [结合使用](#结合使用)
-- [配置](#配置)
-- [运行测试](#运行测试)
+- [使用安装包运行程序](#使用安装包运行程序)
+- [使用Python运行或开发](#使用Python运行或开发)
+  - [安装](#安装)
+  - [使用](#使用)
+  - [配置](#配置)
+  - [运行测试](#运行测试)
 
 ### 简介
 
@@ -32,7 +31,9 @@ Convert image links in all Markdown files within a folder to online Markdown lin
 
 想把有道云笔记里的几千篇笔记迁移到 Obsidian 中，感谢[youdaonote-pull](https://github.com/DeppWang/youdaonote-pull)提供的有道云笔记的全量导出功能，很快把所有笔记导出到了本地文件夹，但是由于几千张笔记中的图片也保留在本地，不方便移动端使用，所以想把图片上传到图床，使用markdown链接到笔记里。于是自己写了个批量转换并上传图片的程序。
 
-## 安装包运行
+## 使用安装包运行程序
+
+下载windows或macOS的安装包，解压后配置`config.json`文件，运行程序即可。
 
 1. 下载安装包
 2. 解压
@@ -47,6 +48,8 @@ Convert image links in all Markdown files within a folder to online Markdown lin
 
 
 ## 使用Python运行或开发
+
+如果安装包不满足需求，可以使用Python运行或开发。
 ### 安装
 
 环境准备：python、poetry
@@ -110,16 +113,15 @@ poetry run pytest
 ---
 
 ## English Documentation
+
 ### Table of Contents
-- [English Documentation](#english-documentation)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Motivation](#motivation)
+
+- [Introduction](#introduction)
+- [Motivation](#motivation)
+- [Installation by Executable Package](#installation-by-executable-package)
+- [Using Python for Running or Development](#using-python-for-running-or-development)
   - [Installation](#installation)
   - [Usage](#usage)
-    - [Using Command-Line Arguments](#using-command-line-arguments)
-    - [Using a Configuration File](#using-a-configuration-file)
-    - [Combining Both](#combining-both)
   - [Configuration](#configuration)
   - [Running Tests](#running-tests)
 
@@ -136,7 +138,25 @@ Main features:
 
 I wanted to migrate thousands of notes from Youdao Cloud Notes to Obsidian. Thanks to [youdaonote-pull](https://github.com/DeppWang/youdaonote-pull) for providing a full export feature for Youdao Cloud Notes, I quickly exported all notes to a local folder. However, since the images in the thousands of notes were also kept locally, it was inconvenient for mobile use. Therefore, I wanted to upload the images to an image hosting service and use markdown links in the notes. So, I wrote a program to batch convert and upload images.
 
-### Installation
+## Installation by Executable Package
+
+Download the installation package for Windows or macOS, unzip it, and configure the `config.json` file. Then run the program.
+1. Download the installation package
+2. Extract it
+3. Configure the `config.json` file
+    - Set `vault_directory` to the path of your notes folder
+    - Set `upload_url` to the URL of your PicList/PicGo service
+    - Set `base_url` to the URL of your image hosting service
+    - Set `cleanup` to determine whether to clean up local images
+4. Run the program
+    - Windows users can double-click `upload-images.exe` to run it.
+    - macOS users can run `./upload-images` in the terminal.
+
+### Using Python for Running or Development
+
+If the executable package does not meet your needs, you can use Python to run or develop.
+
+#### Installation
 
 Prerequisites: Python, Poetry
 
@@ -146,17 +166,17 @@ Run the following command to install dependencies and set up the environment:
 poetry install
 ```
 
-### Usage
+#### Usage
 
 You can run the script with command-line arguments or specify a configuration file.
 
-#### Using Command-Line Arguments
+##### Using Command-Line Arguments
 
 ```bash
 python upload_all_images_in_markdown/main.py <vault_directory> --upload_url <UPLOAD_URL> --cleanup
 ```
 
-#### Using a Configuration File
+##### Using a Configuration File
 
 ```bash
 python upload_all_images_in_markdown/main.py --config config.json
@@ -164,7 +184,7 @@ python upload_all_images_in_markdown/main.py --config config.json
 
 If no configuration file is specified, the default `config.json` will be used.
 
-#### Combining Both
+##### Combining Both
 
 Command-line arguments will override the values in the configuration file.
 
@@ -172,7 +192,7 @@ Command-line arguments will override the values in the configuration file.
 python upload_all_images_in_markdown/main.py --config config.json --upload_url <UPLOAD_URL>
 ```
 
-### Configuration
+#### Configuration
 
 Before running the tests, edit a `config.json` file in the project root directory to include your specific configuration values. You can use the provided `config.sample.json` as a template:
 
@@ -190,7 +210,7 @@ Before running the tests, edit a `config.json` file in the project root director
 
 Ensure that all paths and URLs are correctly set according to your environment and requirements. This configuration file is crucial for the script to function correctly, as it dictates where to find the Markdown files, where to upload the images, and how to handle the images post-upload.
 
-### Running Tests
+#### Running Tests
 
 To run the unit tests, use the following command:
 
