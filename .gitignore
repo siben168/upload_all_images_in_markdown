@@ -4,3 +4,4 @@
 # config.json
 log/
 **/__pycache__/
+config.json
