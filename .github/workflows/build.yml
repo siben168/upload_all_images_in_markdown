@@ -3,34 +3,34 @@ name: Build Windows Executable
 on:
   push:
     branches:
-      - main  # 触发工作流的分支
+      - main  # Trigger workflow on push to main branch
 
 jobs:
   build:
-    runs-on: windows-latest  # 使用 Windows 环境
+    runs-on: windows-latest  # Use Windows environment
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # 拉取代码
+        uses: actions/checkout@v4  # Check out the repository
 
       - name: Set up Python
-        uses: actions/setup-python@v4  # 安装 Python
+        uses: actions/setup-python@v3  # Set up Python
         with:
-          python-version: '3.13'  # 指定 Python 版本
+          python-version: '3.13'  # Specify Python version
 
       - name: Install Poetry
         run: |
-          pip install poetry  # 安装 Poetry
+          pip install poetry  # Install Poetry
 
       - name: Install dependencies
         run: |
-          poetry install  # 使用 Poetry 安装依赖
+          poetry install  # Install dependencies using Poetry
 
       - name: Build executable
         run: |
-          poetry run pyinstaller --onefile --name upload_images upload_all_images_in_markdown/main.py  # 使用 Poetry 运行 PyInstaller 打包程序
+          poetry run pyinstaller --onefile --name upload_images upload_all_images_in_markdown/main.py  # Build the executable
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3  # 上传生成的 .exe 文件
+        uses: actions/upload-artifact@v3  # Upload the generated .exe file
         with:
           name: upload-images.exe
           path: dist/upload-images.exe 
