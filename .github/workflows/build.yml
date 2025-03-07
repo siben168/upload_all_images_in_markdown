@@ -33,4 +33,4 @@ jobs:
         uses: actions/upload-artifact@v4  # Upload the generated .exe file
         with:
           name: upload-images.exe
-          path: dist/upload-images.exe 
+          path: upload_all_images_in_markdowndist/upload-images.exe 
